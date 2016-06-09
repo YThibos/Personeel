@@ -36,6 +36,13 @@
 		<dt>Jobtitel</dt>
 		<dd>${werknemer.jobtitel}</dd>
 	</dl>
+	<c:if test="${not empty werknemer.chef}">
+	<dl>
+		<dt>Chef</dt>
+		<c:url value="/werknemers/${werknemer.chef.id}" var="url"/>
+		<dd><a href="${url}">${werknemer.chef}</a></dd>
+	</dl>
+	</c:if>
 	<c:if test="${not empty werknemer.werknemers}">
 	<dl>
 		<dt>Ondergeschikten</dt>
@@ -50,6 +57,7 @@
 		<dd><img alt="foto" src="<c:url value="/images/${werknemer.id}.jpg"/>" /></dd>
 	</dl>
 	
+	<v:opslagURL id="${werknemer.id}"/>
 
 </body>
 

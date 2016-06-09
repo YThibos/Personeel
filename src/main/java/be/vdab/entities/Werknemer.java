@@ -135,11 +135,11 @@ public class Werknemer implements Serializable, Comparable<Werknemer> {
 		this.jobtitel = jobtitel;
 	}
 
-	public Werknemer getWerknemer() {
+	public Werknemer getChef() {
 		return this.chef;
 	}
 
-	public void setWerknemer(Werknemer werknemer) {
+	public void setChef(Werknemer werknemer) {
 		this.chef = werknemer;
 	}
 
@@ -153,14 +153,14 @@ public class Werknemer implements Serializable, Comparable<Werknemer> {
 
 	public Werknemer addWerknemer(Werknemer werknemer) {
 		getWerknemers().add(werknemer);
-		werknemer.setWerknemer(this);
+		werknemer.setChef(this);
 
 		return werknemer;
 	}
 
 	public Werknemer removeWerknemer(Werknemer werknemer) {
 		getWerknemers().remove(werknemer);
-		werknemer.setWerknemer(null);
+		werknemer.setChef(null);
 
 		return werknemer;
 	}
