@@ -1,5 +1,7 @@
 package be.vdab.services;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import be.vdab.entities.Werknemer;
@@ -23,6 +25,12 @@ public class WerknemerServiceImpl implements WerknemerService {
 	@Override
 	public Werknemer readHighestInHierarchy() {
 		return werknemerRepository.findByChefIsNull();
+	}
+
+	@Override
+	public void opslag(Werknemer werknemer, BigDecimal bedrag) {
+		werknemer.setSalaris(werknemer.getSalaris().add(bedrag));
+		werknemerRepository.save(werknemer);
 	}
 	
 

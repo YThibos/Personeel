@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -71,7 +70,7 @@ public class Werknemer implements Serializable, Comparable<Werknemer> {
 	Jobtitel jobtitel;
 
 	//bi-directional many-to-one association to Werknemer
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="chefid")
 	private Werknemer chef;
 
