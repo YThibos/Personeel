@@ -43,7 +43,9 @@ public class WerknemerController {
 	
 	@RequestMapping(method = RequestMethod.GET, path = "{werknemer}/opslag")
 	ModelAndView opslagForm(@PathVariable Werknemer werknemer) {
-		return new ModelAndView(OPSLAG_VIEW, "werknemer", werknemerService.read(werknemer.getId()));
+		return new ModelAndView(OPSLAG_VIEW)
+				.addObject("werknemer", werknemerService.read(werknemer.getId()))
+				.addObject("opslag", new Opslag());
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, path = "{werknemer}/opslag")
